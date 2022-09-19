@@ -1,0 +1,38 @@
+
+.image-grid {
+
+  transition: all 0.5s ease;
+
+  .image-title-wrapper {
+    position: relative;
+    // display: block;
+    overflow: hidden;
+  
+    .image {
+      width: 100%;
+      margin-bottom: 0px;
+      // position: absolute;
+      // height: 100%;
+      display: block;
+    }
+    
+    .image-title {
+      position: absolute;
+      z-index: 2;
+      top: 0px;
+      display: block;
+
+    }
+  }
+}
+
+@media(max-with: 650px) {
+  
+}
+
+@media(max-with: 500px) {
+
+}
+
+
+
