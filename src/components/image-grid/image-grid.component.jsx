@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import './image-grid.styles.scss';
 
 // import black and white works
-import black1 from '../../images/black1.jpg'
 import black2 from '../../images/black2.jpg'
+import black1 from '../../images/black1.jpg'
 import black3 from '../../images/black3.jpg'
 import black4 from '../../images/black4.jpg'
 import black5 from '../../images/black5.jpg'  
@@ -24,135 +24,196 @@ import colour9 from '../../images/colour9.jpg'
 import colour10 from '../../images/colour10.jpg'
 import colour11 from '../../images/colour11.jpg'
 
-const blackWhiteImages = [
+import arrowRight from '../../images/arrow-right.svg'
+import arrowLeft from '../../images/arrow-left.svg'
+import closeIcon from '../../images/close-icon-black.svg'
+
+const allImages = [
 
   {
     id: 1,
     title: 'black-one',
-    image: black1
+    image: black1,
+    category: 'blackWhite'
   },
   {
     id: 2,
     title: 'black-two',
-    image: black2
+    image: black2,
+    category: 'blackWhite'
   },
   {
     id: 3,
     title: 'black-three',
-    image: black3
+    image: black3,
+    category: 'blackWhite'
   },
   {
     id: 4,
     title: 'black-four',
-    image: black4
+    image: black4,
+    category: 'blackWhite'
   },
   {
     id: 5,
     title: 'black-five',
-    image: black5
+    image: black5,
+    category: 'blackWhite'
   },
   {
     id: 6,
     title: 'black-six',
-    image: black6
+    image: black6,
+    category: 'blackWhite'
   },
   {
     id: 7,
     title: 'black-seven',
-    image: black7
-  }
-
-]
-
-const colourImages = [
-
+    image: black7,
+    category: 'blackWhite'
+  },
   {
-    id: 2.1,
+    id: 8,
     title: 'colour-one',
-    image: colour1
+    image: colour1,
+    category: 'colour'
   },
   {
-    id: 2.1,
+    id: 9,
     title: 'colour-two',
-    image: colour2
+    image: colour2,
+    category: 'colour'
   },
   {
-    id: 2.1,
+    id: 10,
     title: 'colour-three',
-    image: colour3
+    image: colour3,
+    category: 'colour'
   },
   {
-    id: 2.1,
+    id: 11,
     title: 'colour-four',
-    image: colour4
+    image: colour4,
+    category: 'colour'
   },
   {
-    id: 2.1,
+    id: 12,
     title: 'colour-five',
-    image: colour5
+    image: colour5,
+    category: 'colour'
   },
   {
-    id: 2.1,
+    id: 13,
     title: 'colour-six',
-    image: colour6
+    image: colour6,
+    category: 'colour'
   },
   {
-    id: 2.1,
+    id: 14,
     title: 'colour-seven',
-    image: colour7
+    image: colour7,
+    category: 'colour'
   },
   {
-    id: 2.1,
+    id: 15,
     title: 'colour-eight',
-    image: colour8
+    image: colour8,
+    category: 'colour'
   },
   {
-    id: 2.1,
+    id: 16,
     title: 'colour-nine',
-    image: colour9
+    image: colour9,
+    category: 'colour'
   },
   {
-    id: 2.1,
+    id: 17,
     title: 'colour-ten',
-    image: colour10
+    image: colour10,
+    category: 'colour'
   },
   {
-    id: 2.1,
+    id: 18,
     title: 'colour-eleven',
-    image: colour11
+    image: colour11,
+    category: 'colour'
   }
 ]
 
-// data-masonry='{ "itemSelector": ".image-title-wrapper", "columnWidth": 200 }'
+
+// const blackWhiteFilter = allImages.filter(image => (
+//   image.category.includes('blackWhite'))
+// );
+
 
 const ImageGrid = () => {
 
+  const [slideNumber, setSlideNumber] = useState(0);
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleOpenSlides = (index) => {
+    setSlideNumber(index);
+    setOpenModal(true);
+    // console.log(index);
+  }
+  
+  const changeSlide = () => {
+    setSlideNumber();
+  } 
+
   return (
-    
-    <div className='image-grid'>
-      <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
-        <Masonry gutter={'1rem'}>
+    <div className="container">
+
+      {openModal && 
+        <div className="modal open">
+          <img className="close-icon" alt='' src={closeIcon} onClick={() => setOpenModal(false)} />
+          <div className="image-arrows-wrapper">
+            <img className="arrow" alt="" src={arrowLeft} />
+            <img className="image-large" alt="" src={allImages[slideNumber]} />
+            <img className="arrow" alt="" src={arrowRight} onClick={() => changeSlide()} />
+          </div>
+        </div>
+      }
+      
+      <div className='image-grid'>
+        <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
+          <Masonry gutter={'1rem'}>
           
-          {blackWhiteImages.map((singleImage) => (
-            <div className='image-title-wrapper' key={singleImage.id}>
+          {allImages.map((singleImage, index) => (
+            <div className='image-title-wrapper'
+                 key={index} 
+                 onClick={() => handleOpenSlides(singleImage.image)}>
               <img className='image' alt='' src={singleImage.image} />
-              <p className='image-title'>{singleImage.title}</p>
+              <div className='image-title-overlay'>
+                <p className='image-title'>{singleImage.title}</p>
+              </div>  
             </div>
           ))}
 
-          {colourImages.map((singleImage) => (
-            <div className='image-title-wrapper' key={singleImage.id}>
-              <img className='image' alt='' src={singleImage.image} />
-              <p className='image-title'>{singleImage.title}</p>
+          {/* {allImages.filter(image => image.category === 'blackWhite').map(filteredImage => (
+            <div className='image-title-wrapper' key={filteredImage.length}>
+              <img className='image' alt='' src={filteredImage.image} />
+              <div className='image-title-overlay'>
+                <p className='image-title'>{filteredImage.title}</p>
+              </div>
             </div>
           ))}
+          
+          {allImages.filter(image => image.category === 'colour').map(filteredImage => (
+            <div className='image-title-wrapper' key={filteredImage.length}>
+              <img className='image' alt='' src={filteredImage.image} />
+              <div className='image-title-overlay'>
+                <p className='image-title'>{filteredImage.title}</p>
+              </div>
+            </div>
+          ))} */}
 
-        </Masonry>
-      </ResponsiveMasonry>
-    </div>
-    
+          </Masonry>
+        </ResponsiveMasonry>
+      </div>
+      
+    </div> // container
   );
 };  
-
 
 export default ImageGrid;
