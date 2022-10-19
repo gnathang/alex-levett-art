@@ -185,7 +185,7 @@ const ImageGrid = () => {
           {allImages.map((singleImage, index) => (
             <div className='image-title-wrapper'
                  key={index} 
-                 onClick={() => handleOpenSlides(index)}>
+                 onClick={() => handleOpenSlides(singleImage.image)}>
               <img className='image' alt='' src={singleImage.image} />
               <div className='image-title-overlay'>
                 <p className='image-title'>{singleImage.title}</p>

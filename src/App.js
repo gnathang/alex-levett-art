@@ -1,5 +1,3 @@
-
-import './App.css';
 import './app.styles.scss';
 import ImageGrid from './components/image-grid/image-grid.component';
 // import allImages from './components/image-grid/image-grid.component';
@@ -12,8 +10,8 @@ const App = () => {
     <div>
       <header>
         <h1 className='site-title'>alex levett art</h1>
-        <h2 className='blackWhiteFilter'>black & white</h2>
-        <h2 className='colourFilter'>colour</h2>
+        {/* <h2 className='blackWhiteFilter'>black & white</h2> */}
+        {/* <h2 className='colourFilter'>colour</h2> */}
         <a className='insta-link' href='https://www.instagram.com/alex.levett.35/'>
           <img alt='' src={insta} />  
         </a>
