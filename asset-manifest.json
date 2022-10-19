@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/react-gh-pages/static/css/main.0918ecbf.css",
+    "main.js": "/react-gh-pages/static/js/main.38376683.js",
+    "static/js/787.99ba69d1.chunk.js": "/react-gh-pages/static/js/787.99ba69d1.chunk.js",
+    "static/media/colour3.jpg": "/react-gh-pages/static/media/colour3.d48cc6580cd6e5061283.jpg",
+    "static/media/colour2.jpg": "/react-gh-pages/static/media/colour2.331047d86c6d2a68cb10.jpg",
+    "static/media/colour4.jpg": "/react-gh-pages/static/media/colour4.c7383616d35676ccc7ac.jpg",
+    "static/media/colour1.jpg": "/react-gh-pages/static/media/colour1.997201082dda99af9d0b.jpg",
+    "static/media/colour9.jpg": "/react-gh-pages/static/media/colour9.8eef2fbe28630ad24fad.jpg",
+    "static/media/colour7.jpg": "/react-gh-pages/static/media/colour7.8fbb4703c27f9ff4433d.jpg",
+    "static/media/colour10.jpg": "/react-gh-pages/static/media/colour10.edc3bb4ff58df5d25024.jpg",
+    "static/media/colour5.jpg": "/react-gh-pages/static/media/colour5.b155f68c0f69d0ac1bed.jpg",
+    "static/media/colour8.jpg": "/react-gh-pages/static/media/colour8.6bc50c9072a356783bbb.jpg",
+    "static/media/colour6.jpg": "/react-gh-pages/static/media/colour6.f7eeefee22766e760d3d.jpg",
+    "static/media/black2.jpg": "/react-gh-pages/static/media/black2.f87c19834218573f8270.jpg",
+    "static/media/black3.jpg": "/react-gh-pages/static/media/black3.74120bb5fb48b541c3cd.jpg",
+    "static/media/black5.jpg": "/react-gh-pages/static/media/black5.b91c1e218397f064a5b7.jpg",
+    "static/media/black4.jpg": "/react-gh-pages/static/media/black4.75586077ca48374ca3d8.jpg",
+    "static/media/black1.jpg": "/react-gh-pages/static/media/black1.5122cf63fce1ffa9e9ac.jpg",
+    "static/media/black7.jpg": "/react-gh-pages/static/media/black7.6c8c7b4e02689b0d488b.jpg",
+    "static/media/black6.jpg": "/react-gh-pages/static/media/black6.c118c21c3d0568b2faec.jpg",
+    "static/media/colour11.jpg": "/react-gh-pages/static/media/colour11.11061c00430d8a794791.jpg",
+    "static/media/insta.svg": "/react-gh-pages/static/media/insta.6ed2cb5264b2240800b4eca149b65721.svg",
+    "index.html": "/react-gh-pages/index.html",
+    "static/media/close-icon-black.svg": "/react-gh-pages/static/media/close-icon-black.3ef258604765622f57c40da2de69e56f.svg",
+    "static/media/arrow-left.svg": "/react-gh-pages/static/media/arrow-left.b74b51c4c35fb292f28d63a42b7d73c9.svg",
+    "static/media/arrow-right.svg": "/react-gh-pages/static/media/arrow-right.b282d2fca8839e80178c1a178ce23993.svg",
+    "main.0918ecbf.css.map": "/react-gh-pages/static/css/main.0918ecbf.css.map",
+    "main.38376683.js.map": "/react-gh-pages/static/js/main.38376683.js.map",
+    "787.99ba69d1.chunk.js.map": "/react-gh-pages/static/js/787.99ba69d1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0918ecbf.css",
+    "static/js/main.38376683.js"
+  ]
+}
