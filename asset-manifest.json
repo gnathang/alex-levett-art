@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.0918ecbf.css",
-    "main.js": "/react-gh-pages/static/js/main.38376683.js",
+    "main.css": "/react-gh-pages/static/css/main.0291708a.css",
+    "main.js": "/react-gh-pages/static/js/main.b3d13fab.js",
     "static/js/787.99ba69d1.chunk.js": "/react-gh-pages/static/js/787.99ba69d1.chunk.js",
     "static/media/colour3.jpg": "/react-gh-pages/static/media/colour3.d48cc6580cd6e5061283.jpg",
     "static/media/colour2.jpg": "/react-gh-pages/static/media/colour2.331047d86c6d2a68cb10.jpg",
@@ -26,12 +26,12 @@
     "static/media/close-icon-black.svg": "/react-gh-pages/static/media/close-icon-black.3ef258604765622f57c40da2de69e56f.svg",
     "static/media/arrow-left.svg": "/react-gh-pages/static/media/arrow-left.b74b51c4c35fb292f28d63a42b7d73c9.svg",
     "static/media/arrow-right.svg": "/react-gh-pages/static/media/arrow-right.b282d2fca8839e80178c1a178ce23993.svg",
-    "main.0918ecbf.css.map": "/react-gh-pages/static/css/main.0918ecbf.css.map",
-    "main.38376683.js.map": "/react-gh-pages/static/js/main.38376683.js.map",
+    "main.0291708a.css.map": "/react-gh-pages/static/css/main.0291708a.css.map",
+    "main.b3d13fab.js.map": "/react-gh-pages/static/js/main.b3d13fab.js.map",
     "787.99ba69d1.chunk.js.map": "/react-gh-pages/static/js/787.99ba69d1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0918ecbf.css",
-    "static/js/main.38376683.js"
+    "static/css/main.0291708a.css",
+    "static/js/main.b3d13fab.js"
   ]
 }
