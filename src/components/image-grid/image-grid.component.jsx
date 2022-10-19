@@ -148,28 +148,31 @@ const allImages = [
 
 const ImageGrid = () => {
 
+  
   const [slideNumber, setSlideNumber] = useState(0);
-  const [openModal, setOpenModal] = useState(false);
+  const [openSlides, setOpenSlides] = useState(false);
 
   const handleOpenSlides = (index) => {
+    setOpenSlides(true);
     setSlideNumber(index);
-    setOpenModal(true);
-    // console.log(index);
   }
   
-  const changeSlide = () => {
-    setSlideNumber();
+  const changeSlide = (index) => {
+    const length = allImages.length - 1;
+    setSlideNumber((slideNumber) => {
+      return slideNumber < length ? slideNumber + 1 : 0;
+    })
   } 
 
   return (
     <div className="container">
 
-      {openModal && 
+      {openSlides && 
         <div className="modal open">
-          <img className="close-icon" alt='' src={closeIcon} onClick={() => setOpenModal(false)} />
+          <img className="close-icon" alt='' src={closeIcon} onClick={() => setOpenSlides(false)} />
           <div className="image-arrows-wrapper">
             <img className="arrow" alt="" src={arrowLeft} />
-            <img className="image-large" alt="" src={allImages[slideNumber]} />
+            <img className="image-large" alt="" src={slideNumber} />
             <img className="arrow" alt="" src={arrowRight} onClick={() => changeSlide()} />
           </div>
         </div>
