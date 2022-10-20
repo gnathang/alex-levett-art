@@ -154,18 +154,14 @@ const ImageGrid = () => {
 
   const handleOpenSlides = (index) => {
     setOpenSlides(true);
-    setSlideNumber(index);
+    setSlideNumber(slideNumber);
+    console.log(index);
   }
-  
-  // const changeSlide = (index) => {
-  //   // const length = allImages.length - 1;
-  //   setSlideNumber(index);
-  // } 
 
   const changeSlide = () => {
     const length = allImages.length - 1;
-
     setSlideNumber((slideNumber) => {
+      console.log(allImages[slideNumber]);
       if (slideNumber < length) {
         // do something here
         return slideNumber + 1;
@@ -174,21 +170,24 @@ const ImageGrid = () => {
         return 0;
       }
     });
+    
   };
 
   return (
     <div className="container">
 
-      {openSlides && 
-        <div className="modal open">
-          <img className="close-icon" alt='' src={closeIcon} onClick={() => setOpenSlides(false)} />
-          <div className="image-arrows-wrapper">
-            <img className="arrow" alt="" src={arrowLeft} />
-            <img className="image-large" alt="" src={allImages[slideNumber]} />
-            <img className="arrow" alt="" src={arrowRight} onClick={changeSlide} />
+      <div>
+        {openSlides && 
+          <div className="modal open">
+            <img className="close-icon" alt='' src={closeIcon} onClick={() => setOpenSlides(false)} />
+            <div className="image-arrows-wrapper">
+              <img className="arrow" alt="" src={arrowLeft} />
+              <img className="image-large" alt="" src={allImages[slideNumber]} />
+              <img className="arrow" alt="" src={arrowRight} onClick={changeSlide} />
+            </div>
           </div>
-        </div>
-      }
+        }
+      </div>
       
       <div className='image-grid'>
         <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
@@ -197,7 +196,7 @@ const ImageGrid = () => {
           {allImages.map((singleImage, index) => (
             <div className='image-title-wrapper'
               key={index}
-              onClick={handleOpenSlides(index)}>
+              onClick={handleOpenSlides}>
               <img className='image' alt='' src={singleImage.image} />
               <div className='image-title-overlay'>
                 <p className='image-title'>{singleImage.title}</p>
@@ -225,7 +224,8 @@ const ImageGrid = () => {
 
           </Masonry>
         </ResponsiveMasonry>
-      </div>
+        
+      </div> {/* grid */}
       
     </div> // container
   );
