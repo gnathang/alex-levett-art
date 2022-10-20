@@ -157,12 +157,24 @@ const ImageGrid = () => {
     setSlideNumber(index);
   }
   
-  const changeSlide = (index) => {
+  // const changeSlide = (index) => {
+  //   // const length = allImages.length - 1;
+  //   setSlideNumber(index);
+  // } 
+
+  const changeSlide = () => {
     const length = allImages.length - 1;
+
     setSlideNumber((slideNumber) => {
-      return slideNumber < length ? slideNumber + 1 : 0;
-    })
-  } 
+      if (slideNumber < length) {
+        // do something here
+        return slideNumber + 1;
+      } else {
+        // do something else
+        return 0;
+      }
+    });
+  };
 
   return (
     <div className="container">
@@ -172,8 +184,8 @@ const ImageGrid = () => {
           <img className="close-icon" alt='' src={closeIcon} onClick={() => setOpenSlides(false)} />
           <div className="image-arrows-wrapper">
             <img className="arrow" alt="" src={arrowLeft} />
-            <img className="image-large" alt="" src={slideNumber} />
-            <img className="arrow" alt="" src={arrowRight} onClick={() => changeSlide()} />
+            <img className="image-large" alt="" src={allImages[slideNumber]} />
+            <img className="arrow" alt="" src={arrowRight} onClick={changeSlide} />
           </div>
         </div>
       }
@@ -184,8 +196,8 @@ const ImageGrid = () => {
           
           {allImages.map((singleImage, index) => (
             <div className='image-title-wrapper'
-                 key={index} 
-                 onClick={() => handleOpenSlides(singleImage.image)}>
+              key={index}
+              onClick={handleOpenSlides(index)}>
               <img className='image' alt='' src={singleImage.image} />
               <div className='image-title-overlay'>
                 <p className='image-title'>{singleImage.title}</p>
