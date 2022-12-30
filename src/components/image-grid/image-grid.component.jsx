@@ -140,10 +140,7 @@ const allImages = [
   }
 ]
 
-
-// const blackWhiteFilter = allImages.filter(image => (
-//   image.category.includes('blackWhite'))
-// );
+ 
 
 
 const ImageGrid = () => {
@@ -151,6 +148,9 @@ const ImageGrid = () => {
   
   const [slideNumber, setSlideNumber] = useState(0);
   const [openSlides, setOpenSlides] = useState(false);
+  const [selectedTone, setSelectedTone] = useState();
+
+
 
   const handleOpenSlides = (index) => {
     setOpenSlides(true);
@@ -173,16 +173,27 @@ const ImageGrid = () => {
     
   };
 
+  const filteredImages = allImages.filter(image => ! selectedTone || (!! selectedTone && image.category === selectedTone))
+
+  console.log({ filteredImages })
+  
   return (
+
+
     <div className="container">
 
+      <button onClick={() => setSelectedTone('blackWhite')}>black</button>
+      <button onClick={() => setSelectedTone('colour')}>color</button>
+      <button onClick={() => setSelectedTone(undefined)}>all</button>
+
+      
       <div>
         {openSlides && 
           <div className="modal open">
             <img className="close-icon" alt='' src={closeIcon} onClick={() => setOpenSlides(false)} />
             <div className="image-arrows-wrapper">
               <img className="arrow" alt="" src={arrowLeft} />
-              <img className="image-large" alt="" src={allImages[slideNumber]} />
+              <img key={allImages[slideNumber]} className="image-large" alt="" src={allImages[slideNumber].image} />
               <img className="arrow" alt="" src={arrowRight} onClick={changeSlide} />
             </div>
           </div>
@@ -193,27 +204,29 @@ const ImageGrid = () => {
         <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
           <Masonry gutter={'1rem'}>
           
-          {allImages.map((singleImage, index) => (
+            {/* {allImages.map((singleImage, index) => (
+              <div className='image-title-wrapper'
+                key={index}
+                onClick={() => handleOpenSlides(index)}>
+                <img className='image' alt='' src={singleImage.image} />
+                <div className='image-title-overlay'>
+                  <p className='image-title'>{singleImage.title}</p>
+                </div>  
+              </div>
+            ))} */}
+
+          {filteredImages.map((singleImage, index) => (
             <div className='image-title-wrapper'
               key={index}
-              onClick={handleOpenSlides}>
+              onClick={() => handleOpenSlides(index)}>
               <img className='image' alt='' src={singleImage.image} />
               <div className='image-title-overlay'>
                 <p className='image-title'>{singleImage.title}</p>
               </div>  
-            </div>
-          ))}
-
-          {/* {allImages.filter(image => image.category === 'blackWhite').map(filteredImage => (
-            <div className='image-title-wrapper' key={filteredImage.length}>
-              <img className='image' alt='' src={filteredImage.image} />
-              <div className='image-title-overlay'>
-                <p className='image-title'>{filteredImage.title}</p>
-              </div>
-            </div>
+          </div>
           ))}
           
-          {allImages.filter(image => image.category === 'colour').map(filteredImage => (
+          {/* {allImages.filter(image => image.category === 'colour').map(filteredImage => (
             <div className='image-title-wrapper' key={filteredImage.length}>
               <img className='image' alt='' src={filteredImage.image} />
               <div className='image-title-overlay'>
