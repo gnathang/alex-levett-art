@@ -31,13 +31,13 @@ import closeIcon from '../../images/close-icon-black.svg'
 const allImages = [
 
   {
-    id: 2,
+    id: 4,
     title: 'black-one',
     image: black1,
     category: 'blackWhite'
   },
   {
-    id: 4,
+    id: 5,
     title: 'black-two',
     image: black2,
     category: 'blackWhite'
@@ -79,13 +79,13 @@ const allImages = [
     category: 'colour'
   },
   {
-    id: 3,
+    id: 2,
     title: 'colour-two',
     image: colour2,
     category: 'colour'
   },
   {
-    id: 5,
+    id: 3,
     title: 'colour-three',
     image: colour3,
     category: 'colour'
