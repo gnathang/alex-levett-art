@@ -10,6 +10,7 @@
 
 body {
   // font-family: 'Brandon Grotesque Medium', sans-serif;
+  background-color:rgb(234, 230, 221);
   font-family: 'karrikregular', sans-serif;
   font-style: normal;
   width: 80vw;
@@ -19,9 +20,14 @@ body {
 
 header {
   display: flex;
-  justify-content: space-around;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: lowercase;
+  margin-top: 0.67em;
+
+  .site-title {
+    letter-spacing: 0.18em;
+  }
 }
 
 @media(max-with: 650px) {

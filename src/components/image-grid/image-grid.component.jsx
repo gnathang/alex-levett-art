@@ -31,91 +31,91 @@ import closeIcon from '../../images/close-icon-black.svg'
 const allImages = [
 
   {
-    id: 1,
+    id: 2,
     title: 'black-one',
     image: black1,
     category: 'blackWhite'
   },
   {
-    id: 2,
+    id: 4,
     title: 'black-two',
     image: black2,
     category: 'blackWhite'
   },
   {
-    id: 3,
+    id: 7,
     title: 'black-three',
     image: black3,
     category: 'blackWhite'
   },
   {
-    id: 4,
+    id: 9,
     title: 'black-four',
     image: black4,
     category: 'blackWhite'
   },
   {
-    id: 5,
+    id: 11,
     title: 'black-five',
     image: black5,
     category: 'blackWhite'
   },
   {
-    id: 6,
+    id: 13,
     title: 'black-six',
     image: black6,
     category: 'blackWhite'
   },
   {
-    id: 7,
+    id: 15,
     title: 'black-seven',
     image: black7,
     category: 'blackWhite'
   },
   {
-    id: 8,
+    id: 1,
     title: 'colour-one',
     image: colour1,
     category: 'colour'
   },
   {
-    id: 9,
+    id: 3,
     title: 'colour-two',
     image: colour2,
     category: 'colour'
   },
   {
-    id: 10,
+    id: 5,
     title: 'colour-three',
     image: colour3,
     category: 'colour'
   },
   {
-    id: 11,
+    id: 6,
     title: 'colour-four',
     image: colour4,
     category: 'colour'
   },
   {
-    id: 12,
+    id: 8,
     title: 'colour-five',
     image: colour5,
     category: 'colour'
   },
   {
-    id: 13,
+    id: 10,
     title: 'colour-six',
     image: colour6,
     category: 'colour'
   },
   {
-    id: 14,
+    id: 12,
     title: 'colour-seven',
     image: colour7,
     category: 'colour'
   },
   {
-    id: 15,
+    id: 14,
     title: 'colour-eight',
     image: colour8,
     category: 'colour'
@@ -169,7 +169,7 @@ const ImageGrid = () => {
     });
   };
 
-  const filteredImages = allImages.filter(image => ! selectedTone || (!! selectedTone && image.category === selectedTone))
+  const filteredImages = allImages.filter(image => !selectedTone || (!!selectedTone && image.category === selectedTone)).sort((a, b) => a.id - b.id);
 
   console.log({ filteredImages })
   
@@ -178,9 +178,9 @@ const ImageGrid = () => {
     <div className="container">
 
       <div className="buttons-wrapper">
-        <button onClick={() => setSelectedTone(undefined)}>all</button>
-        <button onClick={() => setSelectedTone('blackWhite')}>black&white</button>
-        <button onClick={() => setSelectedTone('colour')}>color</button>
+        <button className="button" onClick={() => setSelectedTone(undefined)}>all</button>
+        <button className="button" onClick={() => setSelectedTone('blackWhite')}>black&white</button>
+        <button className="button" onClick={() => setSelectedTone('colour')}>color</button>
       </div>
 
       <div>
@@ -198,7 +198,7 @@ const ImageGrid = () => {
       
       <div className='image-grid'>
         <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
-          <Masonry gutter={'0.5rem'}>
+          <Masonry gutter={'0.67rem'}>
           
             {/* {allImages.map((singleImage, index) => (
               <div className='image-title-wrapper'
