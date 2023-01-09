@@ -145,12 +145,9 @@ const allImages = [
 
 const ImageGrid = () => {
 
-  
   const [slideNumber, setSlideNumber] = useState(0);
   const [openSlides, setOpenSlides] = useState(false);
   const [selectedTone, setSelectedTone] = useState();
-
-
 
   const handleOpenSlides = (index) => {
     setOpenSlides(true);
@@ -170,7 +167,6 @@ const ImageGrid = () => {
         return 0;
       }
     });
-    
   };
 
   const filteredImages = allImages.filter(image => ! selectedTone || (!! selectedTone && image.category === selectedTone))
@@ -179,14 +175,14 @@ const ImageGrid = () => {
   
   return (
 
-
     <div className="container">
 
-      <button onClick={() => setSelectedTone('blackWhite')}>black</button>
-      <button onClick={() => setSelectedTone('colour')}>color</button>
-      <button onClick={() => setSelectedTone(undefined)}>all</button>
+      <div className="buttons-wrapper">
+        <button onClick={() => setSelectedTone(undefined)}>all</button>
+        <button onClick={() => setSelectedTone('blackWhite')}>black&white</button>
+        <button onClick={() => setSelectedTone('colour')}>color</button>
+      </div>
 
-      
       <div>
         {openSlides && 
           <div className="modal open">
@@ -202,7 +198,7 @@ const ImageGrid = () => {
       
       <div className='image-grid'>
         <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
-          <Masonry gutter={'1rem'}>
+          <Masonry gutter={'0.5rem'}>
           
             {/* {allImages.map((singleImage, index) => (
               <div className='image-title-wrapper'
@@ -223,7 +219,7 @@ const ImageGrid = () => {
               <div className='image-title-overlay'>
                 <p className='image-title'>{singleImage.title}</p>
               </div>  
-          </div>
+            </div>
           ))}
           
           {/* {allImages.filter(image => image.category === 'colour').map(filteredImage => (
