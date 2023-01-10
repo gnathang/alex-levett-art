@@ -140,20 +140,25 @@ const allImages = [
   }
 ]
 
- 
-
-
 const ImageGrid = () => {
 
   const [slideNumber, setSlideNumber] = useState(0);
   const [openSlides, setOpenSlides] = useState(false);
   const [selectedTone, setSelectedTone] = useState();
 
-  const handleOpenSlides = (index) => {
+  const handleOpenSlides = (id) => {
+    console.log(id);
     setOpenSlides(true);
-    setSlideNumber(slideNumber);
-    console.log(index);
+    const imageIndex = filteredImages.findIndex((image) => image.id === id)
+    setSlideNumber(imageIndex);
+    // console.log(imageIndex);
   }
+
+  // const handleOpenSlides = (id) => {
+  //   const selectedImage = filteredImages.find(image => image.id === id);
+  //   setSlideNumber(selectedImage);
+  //   setOpenSlides(true);
+  // }
 
   const changeSlide = () => {
     const length = allImages.length - 1;
@@ -170,6 +175,7 @@ const ImageGrid = () => {
   };
 
   const filteredImages = allImages.filter(image => !selectedTone || (!!selectedTone && image.category === selectedTone)).sort((a, b) => a.id - b.id);
+  const currentImage = filteredImages[slideNumber];
 
   console.log({ filteredImages })
   
@@ -189,7 +195,7 @@ const ImageGrid = () => {
             <img className="close-icon" alt='' src={closeIcon} onClick={() => setOpenSlides(false)} />
             <div className="image-arrows-wrapper">
               <img className="arrow" alt="" src={arrowLeft} />
-              <img key={allImages[slideNumber]} className="image-large" alt="" src={allImages[slideNumber].image} />
+              <img key={allImages[slideNumber]} className="image-large" alt="" src={currentImage.image} />
               <img className="arrow" alt="" src={arrowRight} onClick={changeSlide} />
             </div>
           </div>
@@ -211,7 +217,7 @@ const ImageGrid = () => {
               </div>
             ))} */}
 
-          {filteredImages.map((singleImage, index) => (
+          {/* {filteredImages.map((singleImage, index) => (
             <div className='image-title-wrapper'
               key={index}
               onClick={() => handleOpenSlides(index)}>
@@ -220,7 +226,18 @@ const ImageGrid = () => {
                 <p className='image-title'>{singleImage.title}</p>
               </div>  
             </div>
-          ))}
+          ))} */}
+            
+            {filteredImages.map(singleImage => (
+              <div className='image-title-wrapper'
+                key={singleImage.id}
+                onClick={() => handleOpenSlides(singleImage.id)}>
+                <img className='image' alt='' src={singleImage.image} />
+                <div className='image-title-overlay'>
+                  <p className='image-title'>{singleImage.title}</p>
+                </div>  
+              </div>
+            ))}
           
           {/* {allImages.filter(image => image.category === 'colour').map(filteredImage => (
             <div className='image-title-wrapper' key={filteredImage.length}>
