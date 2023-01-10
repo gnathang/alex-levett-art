@@ -17,21 +17,26 @@ body {
   margin-left: auto;
   margin-right:auto;
   margin-bottom: 1.1em;
-}
 
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-transform: lowercase;
-  margin-top: 0.67em;
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: lowercase;
+    margin-top: 0.67em;
+  
+    .site-title {
+      letter-spacing: 0.18em;
+    }
+  
+    a.insta-link {
+      height: 24px;
+    }
 
-  .site-title {
-    letter-spacing: 0.18em;
-  }
-
-  a.insta-link {
-    height: 24px;
+    a {
+      text-decoration: none;
+      color: black;
+    }
   }
 }
 

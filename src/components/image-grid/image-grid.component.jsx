@@ -151,14 +151,7 @@ const ImageGrid = () => {
     setOpenSlides(true);
     const imageIndex = filteredImages.findIndex((image) => image.id === id)
     setSlideNumber(imageIndex);
-    // console.log(imageIndex);
   }
-
-  // const handleOpenSlides = (id) => {
-  //   const selectedImage = filteredImages.find(image => image.id === id);
-  //   setSlideNumber(selectedImage);
-  //   setOpenSlides(true);
-  // }
 
   const changeSlide = () => {
     const length = allImages.length - 1;
@@ -176,6 +169,12 @@ const ImageGrid = () => {
 
   const filteredImages = allImages.filter(image => !selectedTone || (!!selectedTone && image.category === selectedTone)).sort((a, b) => a.id - b.id);
   const currentImage = filteredImages[slideNumber];
+
+  // const handleKeyPress = (event) => {
+  //   if(event.key === '39'){
+  //     changeSlide()
+  //   }
+  // }
 
   console.log({ filteredImages })
   
