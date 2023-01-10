@@ -9,7 +9,7 @@ const App = () => {
   return (
     <div>
       <header>
-        <h1 className='site-title'>alex levett art</h1>
+        <h1 className='site-title'>alex levett</h1>
         <a className='insta-link' href='https://www.instagram.com/alex.levett.35/'>
           <img alt='' src={insta} />  
         </a>
